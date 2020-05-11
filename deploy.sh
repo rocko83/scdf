@@ -4,6 +4,7 @@
 # / ___ \| |\  |___) | || |_) | |___| |___ 
 #/_/   \_\_| \_|____/___|____/|_____|_____|
 #     
+#https://github.com/rocko83/012-iac-k8s
 ansible-playbook -i inventories/inventory --limit=192.168.56.150 -u operador -b common.yml
 
 # _   _ _____ _     __  __ 
