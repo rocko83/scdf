@@ -73,7 +73,11 @@
 			<artifactId>spring-integration-core</artifactId>
 			<version>4.2.11.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -110,7 +114,7 @@
 					<to>
 						<image>clusterlab/scdf-sink-log</image>
 						<tags>
-							<tag>0.5</tag>
+							<tag>0.6</tag>
 						</tags>
 						<auth>
 							<username>${env.REGISTRY_USERNAME}</username>
