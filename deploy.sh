@@ -64,8 +64,8 @@ docker://registry.hub.docker.com/clusterlab/scdf-source-http:0.3
 dataflow config server http://template:8080
 
 
-app register scdf-sink-log --uri docker://registry.hub.docker.com/clusterlab/scdf-sink-log:0.3 --type sink
-app register scdf-source-http --uri docker://registry.hub.docker.com/clusterlab/scdf-source-http:0.3 --type source
+app register scdf-sink-log --uri docker://registry.hub.docker.com/clusterlab/scdf-sink-log:0.5 --type sink
+app register scdf-source-http --uri docker://registry.hub.docker.com/clusterlab/scdf-source-http:0.5 --type source
 stream create --name scdf --definition "scdf-source-http | scdf-sink-log"
 stream deploy --name scdf
 
