@@ -30,7 +30,7 @@ helm install scdf  --namespace scdf --set kafka.enabled=true,rabbitmq.enabled=fa
 watch kubectl -n scdf get all 
 
 EOF
-
+ks port-forward pod/scdf-data-flow-server-6c8bd4f467-zdwg9 --address 0.0.0.0 8080:8080 2>&1 > /dev/null &
 sh deploy.sh
 
 helm list
@@ -64,8 +64,9 @@ docker://registry.hub.docker.com/clusterlab/scdf-source-http:0.3
 dataflow config server http://template:8080
 
 
-app register scdf-sink-log --uri docker://registry.hub.docker.com/clusterlab/scdf-sink-log:0.6 --type sink
-app register scdf-source-http --uri docker://registry.hub.docker.com/clusterlab/scdf-source-http:0.5 --type source
-stream create --name scdf --definition "scdf-source-http | scdf-sink-log"
-stream deploy --name scdf
+app register scdf-sink-log --uri docker://registry.hub.docker.com/clusterlab/scdf-sink-log:0.11 --type sink
+app register scdf-source-http --uri docker://registry.hub.docker.com/clusterlab/scdf-source-http:0.11 --type source
+app register scdf-source-time --uri docker://registry.hub.docker.com/clusterlab/scdf-source-time:0.11 --type source
+stream create --name scdf2 --definition "scdf-source-time  | scdf-sink-log"
+stream deploy --name scdf2
 
