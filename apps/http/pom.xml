@@ -64,6 +64,11 @@
             <version>2.2.7.RELEASE</version>
             <scope>compile</scope>
         </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
     </dependencies>
 
 	<dependencyManagement>
@@ -100,7 +105,7 @@
 					<to>
 						<image>clusterlab/scdf-source-http</image>
 						<tags>
-							<tag>0.5</tag>
+							<tag>0.11</tag>
 						</tags>
 						<auth>
 							<username>${env.REGISTRY_USERNAME}</username>
